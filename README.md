@@ -1,2 +1,6 @@
-# Ordena-o
-Algorítimos de ordenação Bubble sort, Insertion sort e Selection sort.
+# Ordenation algorithms 
+
+1. Bubble Sort
+2. Selection Sort
+3. Insertion Sort
+
