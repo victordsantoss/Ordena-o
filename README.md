@@ -1,7 +1,8 @@
 # Ordenation algorithms 
 1. Selection Sort
 2. Insertion Sort
-3. Bubble Sorte
+3. Bubble Sort
+4. Counting Sort
 
 ## Terminal commands
  
