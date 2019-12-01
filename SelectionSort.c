@@ -36,6 +36,7 @@ void selectionSort (int *vector, int size){
 		printf ("%d ", vector[k]);
 
 	printf ("\n");
+	
 }
 
 void exchange (int *a, int *b){
