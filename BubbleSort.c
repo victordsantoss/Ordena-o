@@ -1,47 +1,40 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-#define numEl 10
+void bubbleSort (int *v, int size);
 
-void bubbleSort (int *vector, int tam);
-void exchange (int *a, int *b);
+int main (){
 
-int main () 
-{
-	int num [numEl];
+    int size, aux = 0;
+	scanf ("%d", &size);
 
-	for (int i = 0; i < numEl; i++)
-	{
-		scanf ("%d", &num[i]);
-	}
-	bubbleSort (num, numEl);
-	
-	return 0;
+	int *num = malloc (size * sizeof(int));
+
+	while (scanf("%d", &num[aux]) != EOF)
+		aux++;
+
+	bubbleSort (num, aux);
+    
+    return 0;
 }
 
-void bubbleSort (int *vector, int tam)
-{
-    int inversion;
-    do {
-        inversion = 0;
-        for (int i = 0; i < tam; i++)
-        {
-            if (vector[i] < vector[i-1])
-            {
-                exchange (&vector[i], &vector[i-1]);
-                inversion = -1;
+void bubbleSort (int *v, int size){
+
+    int control, aux;
+    for (int i = 0; i < size; i++){
+        control = 1;
+        for (int j = 0; j < size-1; j++){
+            if (v[j] > v[j+1]){
+                aux = v[j];
+                v[j] = v[j+1];
+                v[j+1] = aux;
             }
         }
-    } while (inversion);
-    for (int k  = 0; k < tam; k++)
-	{
-		printf  ("%d ", vector[k]);
-	}
-}
-
-void exchange (int *a, int *b)
-{
-	int tmp = *a;
-	*a = *b;
-	*b = tmp;
+        if(control == 0)
+            break;
+    }
+    for (int k  = 0; k < size; k++)
+		printf ("%d ", v[k]);
+        
+    printf ("\n ");
 }
