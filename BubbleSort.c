@@ -20,9 +20,8 @@ int main (){
 
 void bubbleSort (int *vector, int size){
 
-    int control, aux;
+    int aux;
     for (int i = 0; i < size; i++){
-        control = 1;
         for (int j = 0; j < size-1; j++){
             if (vector[j] > vector[j+1]){
                 aux = vector[j];
@@ -30,8 +29,6 @@ void bubbleSort (int *vector, int size){
                 vector[j+1] = aux;
             }
         }
-        if(control == 0)
-            break;
     }
     for (int k  = 0; k < size; k++)
 		printf ("%d ", vector[k]);

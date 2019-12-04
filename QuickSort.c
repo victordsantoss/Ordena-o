@@ -13,7 +13,7 @@ int main (){
 	while (scanf("%d", &num[aux]) != EOF)
 		aux++;
 
-	quiquickSortck (num, 0, aux);
+	quickSort (num, 0, aux);
 
     for(int i = 0; i < aux; i++)
         printf("%d ", num[i]);
