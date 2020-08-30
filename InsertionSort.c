@@ -6,7 +6,7 @@ typedef int item;
 #define less(a,b) (key(a) < key(b))
 #define exch(a,b) {item t = a; a = b; b = t;}
 #define cmpexch(a,b) {if (less(b,a)) exch(a,b);}
-#define tam 300
+#define tam 1000
 
 void insertion_sort (item *v, int l, int r);
 
@@ -14,7 +14,7 @@ int main (){
 
     int *v = malloc (tam * sizeof (int));
     for (int i = 0; i < tam; i++)
-        v[i] = rand () % 1000; // Números aleatórios até 1000
+        v[i] = rand () % 1000;
 
     insertion_sort (v, 0, tam-1);
 
