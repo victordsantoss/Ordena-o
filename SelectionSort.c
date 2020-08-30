@@ -1,46 +1,38 @@
 #include <stdio.h>
 #include <stdlib.h>
+#define tam 100
 
-void selectionSort (int *vector, int size);
-void exchange (int *a, int *b);
+void selection_sort (int *v, int l, int r);
+void exch (int *a, int *b);
 
 int main (){
 
-	int size, aux = 0;
-	scanf ("%d", &size);
+    int v[tam];
+    for (int i = 0; i < tam; i++)
+        v[i] = rand () % 1000; // Números aleatórios até 1000
 
-	int *num = malloc (size * sizeof(int));
+    selection_sort (v, 0, tam);
 
-	while (scanf("%d", &num[aux]) != EOF)
-		aux++;
+    for (int i = 0; i < tam; i++)
+        printf ("%d ", v[i]);
 
-	selectionSort (num, aux);
-	
-	return 0;
+    return 0;
 }
 
-void selectionSort (int *vector, int size){
-	
-	int smaller;
+void selection_sort (int *v, int l, int r){
 
-	for (int i = 0; i < size; i++){
-		smaller = i;
-		for (int j = i; j < size; j++){
-			if (vector[j] < vector[smaller])
-				smaller = j;
-		}
-		exchange (&vector[i], &vector[smaller]);	
-	}
-
-	for (int k  = 0; k < size; k++)
-		printf ("%d ", vector[k]);
-
-	printf ("\n");
-	
+    for (int i = l; i < r; i++){
+        int min = i;
+        for (int j = i+1; j < r; j++){
+            if (v[j] < v[min])
+                min = j;
+        }
+        exch (&v[i], &v[min]);
+    }
 }
 
-void exchange (int *a, int *b){
-	int tmp = *a;
-	*a = *b;
-	*b = tmp;
+void exch (int *a, int *b){
+    int tmp = *a;
+    *a = *b;
+    *b = tmp;
 }

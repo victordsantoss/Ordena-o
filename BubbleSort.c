@@ -1,38 +1,34 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-void bubbleSort (int *vector, int size);
+typedef int item;
+#define key(a) (a)
+#define less(a,b) (key(a) < key(b))
+#define exch(a,b) {item t = a; a = b; b = t;}
+#define cmpexch(a,b) {if (less(b,a)) exch(a,b);}
+#define tam 100
+
+void bubble_sort (item *v, int l, int r);
 
 int main (){
 
-    int size, aux = 0;
-	scanf ("%d", &size);
+    int *v = malloc (tam * sizeof (int));
 
-	int *num = malloc (size * sizeof(int));
+    for (int i = 0; i < tam; i++)
+        v[i] = rand () % 1000; // Números aleatórios até 1000
 
-	while (scanf("%d", &num[aux]) != EOF)
-		aux++;
+    bubble_sort (v, 0, tam-1);
 
-	bubbleSort (num, aux);
-    
+    for (int i = 0; i < tam; i++)
+        printf ("%d ", v[i]);
+
     return 0;
 }
 
-void bubbleSort (int *vector, int size){
+void bubble_sort (item *v, int l, int r){
 
-    int aux;
-    for (int i = 0; i < size; i++){
-        for (int j = 0; j < size-1; j++){
-            if (vector[j] > vector[j+1]){
-                aux = vector[j];
-                vector[j] = vector[j+1];
-                vector[j+1] = aux;
-            }
-        }
+    for (int i = l; i < r; i++){
+        for (int j = l; j < r; j++)
+            cmpexch (v[j], v[j+1]);
     }
-    for (int k  = 0; k < size; k++)
-		printf ("%d ", vector[k]);
-        
-    printf ("\n ");
-    
 }
