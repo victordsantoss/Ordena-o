@@ -7,6 +7,7 @@
 ## Effective Methods
 1. MergeSort
 2. ShellSort
+3. QuickSort
 
 ## Terminal commands
  
