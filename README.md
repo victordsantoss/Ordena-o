@@ -13,5 +13,3 @@
  
      to compile: gcc archive.c -o bin
      run: ./bin
-
-## Input ends with End of File
