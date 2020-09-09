@@ -7,7 +7,7 @@ typedef int item;
 #define exch(a,b) {item t = a; a = b; b = t;}
 #define cmpexch(a,b) {if (less(b,a)) exch(a,b);}
 #define tam 1000
-
+ 
 void bubble_sort (item *v, int l, int r);
 
 int main (){

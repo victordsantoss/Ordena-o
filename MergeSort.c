@@ -6,7 +6,7 @@ void mergeSort(int *vector, int left, int right);
 int main (){
 	
 	int size, aux = 0;
-	scanf ("%d", &size);
+	scanf ("%d", &size); 
 
 	int *num = malloc (size * sizeof(int));
 

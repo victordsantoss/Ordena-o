@@ -5,7 +5,7 @@ typedef int item;
 #define key(a) (a)
 #define less(a,b) (key(a) < key(b))
 #define exch(a,b) {item t = a; a = b; b = t;}
-#define cmpexch(a,b) {if (less(b,a)) exch(a,b);}
+#define cmpexch(a,b) {if (less(b,a)) exch(a,b);} 
 #define tam 1000
 
 void insertion_sort (item *v, int l, int r);

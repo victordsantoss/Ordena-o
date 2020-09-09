@@ -9,7 +9,7 @@ int main (){
     int *v = malloc (tam * sizeof (int));
     int i;
     for (i = 0; i < tam; i++)
-        v[i] = rand () % 1000;
+        v[i] = rand () % 1000; 
 
     shell_sort (v, i);
 

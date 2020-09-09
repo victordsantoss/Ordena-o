@@ -10,7 +10,7 @@ int main (){
     int *v = malloc (tam * sizeof (int));
 
     for (int i = 0; i < tam; i++)
-        v[i] = rand () % 1000;
+        v[i] = rand () % 1000; 
 
     selection_sort (v, 0, tam);
 
