@@ -1,4 +1,4 @@
-# :computer: Ordenation algorithms 
+# :computer: Algoritimos de Ordenação 
 Um algoritmo de ordenação na ciência da computação é um algoritmo que coloca os elementos de uma sequência de dados em uma determinada ordem, ou seja, realiza sua ordenação total ou parcial.
 
 ## :warning: O que será visto? 
