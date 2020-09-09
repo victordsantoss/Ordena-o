@@ -44,7 +44,7 @@ Fonte: [Treina Web](https://www.treinaweb.com.br/blog/conheca-os-principais-algo
 ## :computer: Como executar os programas usando o sistema Linux?
 > Primero passo: Clonar este repositório
      
-    git clone https://github.com/victordsantoss/ordenation_algorithms.git
+    git clone https://github.com/victordsantoss/algoritimos_de_ordenacao.git
 > Acesse a pasta raiz do repositório
 
     cd ../../algoritimos_de_ordenacao
