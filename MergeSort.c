@@ -1,26 +1,21 @@
 #include <stdio.h>
 #include <stdlib.h>
+#define tam 100
 
 void mergeSort(int *vector, int left, int right);
 
 int main (){
-	
-	int size, aux = 0;
-	scanf ("%d", &size); 
 
-	int *num = malloc (size * sizeof(int));
+    int *v = malloc (tam * sizeof (int));
+    for (int i = 0; i < tam; i++)
+        v[i] = rand () % 1000;
 
-	while (scanf("%d", &num[aux]) != EOF)
-		aux++;
+    mergeSort (v, 0, tam-1);
 
-    mergeSort(num, 0, aux-1);
+    for (int i = 0; i < tam; i++)
+        printf ("%d ", v[i]);
 
-    for(int i = 0; i < aux; i++)
-        printf("%d ", num[i]);
-
-    printf ("\n");
-	
-	return 0;
+    return 0;
 }
 
 void mergeSort(int *vector, int left, int right) {
@@ -65,6 +60,7 @@ void mergeSort(int *vector, int left, int right) {
         }
 
     }
+    
     for(i = left; i <= right; i++)
         vector[i] = vectorTemp[i - left];
 
