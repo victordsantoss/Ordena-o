@@ -1,8 +1,16 @@
 #include <stdio.h>
 #include <stdlib.h>
-#define tam 100
 
-void mergeSort(int *vector, int left, int right);
+typedef int item;
+#define key(a) (a)
+#define less(a,b) (key(a) < key(b))
+#define exch(a,b) {item t = a; a = b; b = t;}
+#define cmpexch(a,b) {if (less(b,a)) exch(a,b);}
+#define tam 1000
+
+void merge_sort (item *v, int l, int r);
+void merge (item *v, int l, int r1, int r2);
+int separa (item *v, int l, int r);
 
 int main (){
 
@@ -10,7 +18,7 @@ int main (){
     for (int i = 0; i < tam; i++)
         v[i] = rand () % 1000;
 
-    mergeSort (v, 0, tam-1);
+    merge_sort (v, 0, tam-1);
 
     for (int i = 0; i < tam; i++)
         printf ("%d ", v[i]);
@@ -18,52 +26,43 @@ int main (){
     return 0;
 }
 
-void mergeSort(int *vector, int left, int right) {
+void merge_sort (item *v, int l, int r){
 
-    int i, j, k, halfSize, *vectorTemp; 
-    
-    if(left == right) return;
-    halfSize = (left + right ) / 2;
+    if (l >= r) return;
 
-    mergeSort(vector, left, halfSize);
-    mergeSort(vector, halfSize + 1, right);
-
-    i = left;
-    j = halfSize + 1;
-    k = 0;
-    vectorTemp = (int *) malloc(sizeof(int) * (right - left + 1));
-
-    while(i < halfSize + 1 || j  < right + 1){
-        if (i == halfSize + 1 ) { 
-            vectorTemp[k] = vector[j];
-            j++;
-            k++;
-        }
-        else{
-            if (j == right + 1){
-                vectorTemp[k] = vector[i];
-                i++;
-                k++;
-            }
-            else{
-                if (vector[i] < vector[j]){
-                    vectorTemp[k] = vector[i];
-                    i++;
-                    k++;
-                }
-                else{
-                    vectorTemp[k] = vector[j];
-                    j++;
-                    k++;
-                }
-            }
-        }
-
-    }
-    
-    for(i = left; i <= right; i++)
-        vector[i] = vectorTemp[i - left];
-
-    free(vectorTemp);
+    int meio = (r + l) / 2;
+    merge_sort (v, l, meio);
+    merge_sort (v, meio + 1, r);
+    merge (v, l, meio, r);
 
 }
+
+void merge (item *v, int l, int r1, int r2){
+
+    item *v2 = malloc (sizeof (item) * (r2-l+1));
+    int k = 0;
+    int i = l;
+    int j = r1 + 1;
+
+    while (i <= r1 && j <= r2){
+        if (less (v[i], v[j]))
+            v2[k++] = v[i++];
+        else
+            v2[k++] = v[j++];
+    }
+
+    while (i <= r1)
+        v2[k++] = v[i++];
+
+    while (j <= r2)
+        v2[k++] = v[j++];
+
+    k = 0;
+
+    for (i = l; i <= r2; i++)
+        v[i] = v2[k++];
+
+    free (v2);
+
+}
+
