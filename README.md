@@ -47,7 +47,7 @@ Fonte: [Treina Web](https://www.treinaweb.com.br/blog/conheca-os-principais-algo
     git clone https://github.com/victordsantoss/algoritimos-de-ordenacao.git
 > Acessar a pasta raiz do repositório
 
-    cd ../../algoritimos_de_ordenacao
+    cd ../../algoritimos-de-ordenacao
 > Escolher um arquivo de preferência e execute o processo de compilação
     
     gcc nome_arquivo.c -o bin
