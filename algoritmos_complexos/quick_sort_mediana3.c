@@ -6,30 +6,31 @@ typedef int item;
 #define less(a,b) (key(a) < key(b))
 #define exch(a,b) {item t = a; a = b; b = t;}
 #define cmpexch(a,b) {if (less(b,a)) exch(a,b);}
-#define tam 1000
+#define tam 100
 
-void quick_sort (item *v, int l, int r);
-int separa (item *v, int l, int r);
+void quick_sort (item *v, item l, item r);
+item separa (item *v, item l, item r);
 
-int main (){
+item main (){
 
-    int *v = malloc (tam * sizeof (int));
-    for (int i = 0; i < tam; i++)
-        v[i] = rand () % 10000;
+    item *v = malloc (tam * sizeof (item));
+
+    for (item i = 0; i < tam; i++)
+        v[i] = rand () % 1000;
 
     printf ("Posição do pivo: %d\n", separa (v, 0, tam-1));
 
     quick_sort (v, 0, tam-1);
 
-    for (int i = 0; i < tam; i++)
+    for (item i = 0; i < tam; i++)
         printf ("%d ", v[i]);
 
     return 0;
 }
 
-void quick_sort (item *v, int l, int r){
+void quick_sort (item *v, item l, item r){
     
-    int j;
+    item j;
 
     if (r <= l) return;
     
@@ -42,11 +43,12 @@ void quick_sort (item *v, int l, int r){
     quick_sort (v, j+1, r);
 }
 
-int separa (item *v, int l, int r){
-    int pivo = v[r];
-    int j = l;
+item separa (item *v, item l, item r){
 
-    for (int k = l; k < r; k++)
+    item pivo = v[r];
+    item j = l;
+
+    for (item k = l; k < r; k++)
         if (less(v[k], pivo)){
             exch (v[k], v[j]);
             j++;

@@ -8,26 +8,27 @@ typedef int item;
 #define cmpexch(a,b) {if (less(b,a)) exch(a,b);}
 #define tam 1000
 
-void quick_sort (item *v, int l, int r);
-int separa (item *v, int l, int r);
+void quick_sort (item *v, item l, item r);
+item separa (item *v, item l, item r);
 
-int main (){
+item main (){
 
-    int *v = malloc (tam * sizeof (int));
-    for (int i = 0; i < tam; i++)
+    item *v = malloc (tam * sizeof (int));
+    
+    for (item i = 0; i < tam; i++)
         v[i] = rand () % 1000;
 
     quick_sort (v, 0, tam-1);
 
-    for (int i = 0; i < tam; i++)
+    for (item i = 0; i < tam; i++)
         printf ("%d ", v[i]);
 
     return 0;
 }
 
-void quick_sort (item *v, int l, int r){
+void quick_sort (item *v, item l, item r){
     
-    int j;
+    item j;
 
     if (r <= l) return;
 
@@ -41,12 +42,12 @@ void quick_sort (item *v, int l, int r){
     quick_sort (v, j+1, r);
 }
 
-int separa (item *v, int l, int r){
+item separa (item *v, item l, item r){
     
-    int pivo = v[r];
-    int j = l;
+    item pivo = v[r];
+    item j = l;
 
-    for (int k = l; k < r; k++)
+    for (item k = l; k < r; k++)
         if (less(v[k], pivo)){
             exch (v[k], v[j]);
             j++;
